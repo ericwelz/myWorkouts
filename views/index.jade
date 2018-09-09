@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  
+  table
+    thead
+    tbody
+      tr
+        td.buttontable
+          a(href="/")
+            button.inactive(type="button") Home
+        td.buttontable
+          a(href="musclegroups")
+            button.active(type="button") Muscle Groups
+        td.buttontable
+          form#unfiltexercise(name="unfiltexercise",method="post",action="/exercises")
+            input(type="hidden", name="filter", value="nofilter")
+            button.active(type="submit") Exercises
+        td.buttontable
+          a(href="sets")
+            button.active(type="button") Sets
+        td.buttontable
+          a(href="cardio")
+            button.active(type="button") Cardio</br>Workouts
+  

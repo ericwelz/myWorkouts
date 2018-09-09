@@ -1,0 +1,105 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #292F32;
+}
+
+h1, p {
+	color: #292F32;
+}
+
+table {
+	border-collapse: collapse;
+	margin-top: 25px;
+	border-color: black;
+}
+
+th, td {
+	border: 1px solid black;
+    padding: 8px;
+}
+
+#btnSubmit {background-image: linear-gradient(#D49447, #F0DBC1)}
+
+.buttontable { border: none; width: 150px;}
+
+.active {
+	width:100px;
+	height:35px;
+	background-image: linear-gradient(#2984CF, #B1D2ED);
+}
+
+.inactive {
+	color: #C0C0C0;
+	width:100px;
+	height:35px;
+}
+
+.descDisplay {
+	word-wrap: break-word;
+	width: 400px;
+}
+
+tr:nth-child(even).listrow {background-color: #CFA534;}
+
+.formtable {
+	border: none;
+	background: #ACC5EE;
+	border-radius: 10px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+}
+
+table.formtable {
+    border-collapse:separate;
+    border: none;
+	border-radius: 10px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px
+}
+
+td.formtable {
+    background-color: #ACC5EE;
+    border: none;
+}
+
+th.formtable {
+	height: 40px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+    background-color: #1C61D1;
+    border: none;
+}
+
+
+
+thead {
+	font-size: 16px;
+	font-weight: bold;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #1C61D1;
+    color: white;
+}
+    
+.subtitle {
+	font-style: italic;
+	font-size: 16px;
+}
+
+.aligntop {
+	vertical-align: top;
+}
+    
+#space1 div {height=100px;}
+
+input, select, textarea, button {
+	margin-top: 5px;
+	margin-right: 25px;
+	display: inline-block;
+	vertical-align: top;
+}

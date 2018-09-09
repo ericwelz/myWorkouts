@@ -1,0 +1,109 @@
+extends layout
+
+block content
+  h1= title
+  p List, Add, and Delete #{title}
+  
+  table
+    thead
+    tbody
+      tr
+        td.buttontable
+          a(href="/")
+            button.active(type="button") Home
+        td.buttontable
+          a(href="muscleGroups")
+            button.active(type="button") Muscle Groups
+        td.buttontable
+          form#unfiltexercise(name="unfiltexercise",method="post",action="/exercises")
+            input(type="hidden", name="filter", value="nofilter")
+            button.active(type="submit") Exercises
+        td.buttontable
+          a(href="sets")
+            button.inactive(type="button") Sets
+        td.buttontable
+          a(href="cardio")
+            button.active(type="button") Cardio</br>Workouts
+
+  form.formAddSet(name="addset",method="post",action="/exercises/addset")
+    table.formtable
+      thead.formtable
+        tr
+          th.formtable Add Set
+      tbody.formtable
+        tr.formtable
+          td.formtable
+            input#inputDate(type="date", name="date")
+            select(name="primarymsclgrp")
+              option(selected="selected", disabled="disabled") Choose Primary Muscle Group...
+              each group, i in groups
+                option #{group.name}
+            select(name="exerciseName")
+              option(selected="selected", disabled="disabled") Choose Exercise...
+              each exercise, i in exercises
+                option #{exercise.name}
+            input#inputsetnum(type="number", name="setnum")
+            input#inputWeight(type="number", name="weight")
+            input#inputReps(type="number", name="reps")
+            input#inputTime(type="time", name="finishtime")
+            button#btnSubmit(type="submit") Add
+  
+  table
+    thead
+      tr
+        th(colspan="4") List of Sets
+      tr
+        th Date
+        th Primary Muscle Group
+        th Exercise Name
+        th Set Number
+        th Weight
+        th Number of Reps
+        th Finish Time
+    tbody
+      each set, i in sets
+        tr.listrow
+          td #{set.date}
+          td #{set.primarymsclgrp}
+          td #{set.exercisename}
+          td #{set.number}
+          td #{set.weight}
+          td #{set.reps}
+          td #{set.time}
+  
+  table
+    tr
+      td.buttontable
+        form#formDelSet(name="delset",method="post",action="/sets/delset", style="display: inline;")
+          table.formtable
+            thead.formtable
+              tr
+                th.formtable Delete Set
+            tbody.formtable
+              tr.formtable
+                td.formtable
+                  select(name="deldate")
+                    option(selected="selected", disabled="disabled") Choose Workout Date...
+                    each set, i in sets
+                      option #{set.date}
+                  select(name="delexercise")
+                    option(selected="selected", disabled="disabled") Choose Exercise...
+                    each exercise, i in exercises
+                      option #{exercise.name}
+                  input#inputsetnum(type="number", name="delsetnum")
+                  button#btnSubmit(type="submit") Delete 
+      td.buttontable
+        form#formfilterExercises(name="filtsets",method="post",action="/sets", style="display: inline;")
+          table.formtable
+            thead.formtable
+              tr
+                th.formtable Filter Exercise List
+            tbody.formtable
+              tr.formtable
+                td.formtable
+                  select(name="filter")
+                    option(selected="selected", disabled="disabled") Choose Primary Muscle Group...
+                    each group, i in groups
+                      option #{group.name}
+                    option nofilter
+                  button#btnSubmit(type="submit") Filter
