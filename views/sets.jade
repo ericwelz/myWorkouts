@@ -84,12 +84,12 @@ block content
                 td.formtable
                   select(name="deldate")
                     option(selected="selected", disabled="disabled") Choose Workout Date...
-                    each set, i in sets
-                      option #{set.date}
+                   // each set, i in sets
+                   //   option #{set.date}
                   select(name="delexercise")
                     option(selected="selected", disabled="disabled") Choose Exercise...
-                    each exercise, i in exercises
-                      option #{exercise.name}
+                    //each exercise, i in exercises
+                    //  option #{exercise.name}
                   input#inputsetnum(type="number", name="delsetnum")
                   button#btnSubmit(type="submit") Delete 
       td.buttontable
