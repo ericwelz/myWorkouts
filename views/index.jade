@@ -19,8 +19,9 @@ block content
             input(type="hidden", name="filter", value="nofilter")
             button.active(type="submit") Exercises
         td.buttontable
-          a(href="sets")
-            button.active(type="button") Sets
+          form#unfiltset(name="unfiltset",method="post",action="/sets")
+            input(type="hidden", name="filter", value="nofilter")
+            button.active(type="submit") Sets
         td.buttontable
           a(href="cardio")
             button.active(type="button") Cardio</br>Workouts

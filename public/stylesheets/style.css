@@ -103,3 +103,7 @@ input, select, textarea, button {
 	display: inline-block;
 	vertical-align: top;
 }
+
+#inputsetnum, #inputWeight, #inputReps, #inputTime {
+	width: 90px;
+}

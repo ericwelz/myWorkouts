@@ -25,7 +25,7 @@ block content
           a(href="cardio")
             button.active(type="button") Cardio</br>Workouts
 
-  form.formAddSet(name="addset",method="post",action="/exercises/addset")
+  form.formAddSet(name="addset",method="post",action="/sets/addset")
     table.formtable
       thead.formtable
         tr
@@ -42,10 +42,10 @@ block content
               option(selected="selected", disabled="disabled") Choose Exercise...
               each exercise, i in exercises
                 option #{exercise.name}
-            input#inputsetnum(type="number", name="setnum")
-            input#inputWeight(type="number", name="weight")
-            input#inputReps(type="number", name="reps")
-            input#inputTime(type="time", name="finishtime")
+            input#inputsetnum(type="number", name="setnum", placeholder="Set Number...")
+            input#inputWeight(type="number", name="weight", placeholder="Weight...")
+            input#inputReps(type="number", name="reps", placeholder="# Reps...")
+            input#inputTime(type="time", name="finishtime", placeholder="Finish Time...")
             button#btnSubmit(type="submit") Add
   
   table
@@ -54,7 +54,6 @@ block content
         th(colspan="4") List of Sets
       tr
         th Date
-        th Primary Muscle Group
         th Exercise Name
         th Set Number
         th Weight
@@ -64,12 +63,11 @@ block content
       each set, i in sets
         tr.listrow
           td #{set.date}
-          td #{set.primarymsclgrp}
-          td #{set.exercisename}
-          td #{set.number}
+          td #{set.exercise}
+          td #{set.setNumber}
           td #{set.weight}
           td #{set.reps}
-          td #{set.time}
+          td #{set.finishtime}
   
   table
     tr
@@ -84,12 +82,12 @@ block content
                 td.formtable
                   select(name="deldate")
                     option(selected="selected", disabled="disabled") Choose Workout Date...
-                   // each set, i in sets
-                   //   option #{set.date}
+                   //- each set, i in sets
+                   //-   option #{set.date}
                   select(name="delexercise")
                     option(selected="selected", disabled="disabled") Choose Exercise...
-                    //each exercise, i in exercises
-                    //  option #{exercise.name}
+                    //-each exercise, i in exercises
+                    //-  option #{exercise.name}
                   input#inputsetnum(type="number", name="delsetnum")
                   button#btnSubmit(type="submit") Delete 
       td.buttontable
@@ -103,7 +101,7 @@ block content
                 td.formtable
                   select(name="filter")
                     option(selected="selected", disabled="disabled") Choose Primary Muscle Group...
-                    // each group, i in groups
-                     // option #{group.name}
+                    //- each group, i in groups
+                     //- option #{group.name}
                     option nofilter
                   button#btnSubmit(type="submit") Filter
